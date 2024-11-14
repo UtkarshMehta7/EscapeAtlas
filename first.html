@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EscapeAtlas</title>
+    <link rel="stylesheet" href="style.css">
+    <script>//header
+
+        // slider images array
+        
+        const sliderImgs = ["australia.jpg", "India.jpg", "img3.jpg", "img4.png", "img5.png", "img6.png"];
+        let sliderImage = document.querySelector('.background-image');
+        let sliderGrids = [...document.querySelectorAll('.grid-item')];
+        
+        let currentImage = 0;
+        
+        setInterval(() => {
+            changeSliderImage();
+        }, 5000);
+        
+        const changeSliderImage = () => {
+            sliderGrids.map((gridItem, index) => {
+                setTimeout(() => {
+                    gridItem.classList.remove('hide');
+        
+                    setTimeout(() => {
+        
+                        if(index == sliderGrids.length - 1){
+                            if(currentImage >= sliderImgs.length - 1){
+                                currentImage = 0;
+                            } else{
+                                currentImage++;
+                            }
+        
+                            sliderImage.src = `img/${sliderImgs[currentImage]}`;
+        
+                            sliderGrids.map((item, i) => {
+                                setTimeout(() => {
+                                    item.classList.add('hide')
+                                }, i * 100);
+                            })
+        
+                        }
+        
+                    }, 100);
+        
+                }, index * 100);
+            })
+        }
+        // nav
+        
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            if(scrollY >= 188){
+                navbar.classList.add('bg');
+            } else{
+                navbar.classList.remove('bg')
+            }
+        })
+        </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="links-container">
+                <li class="link-item"><a href="#travel">Travel</a></li>
+                <li class="link-item"><a href="#explore-section">Explore</a></li>
+                <li class="link-item"><a href="#hero-section"><img src="img/logo.png" class="logo" alt=""></a></li>
+                <li class="link-item"><a href="#services">Services</a></li>
+                <li class="link-item"><a href="#booknow">Book Now</a></li>
+            </ul>
+        </nav>
+        <main class="hero-section" id="hero-section">
+
+            <div class="hero-section-content" data-aos="fade-up">
+                <h1 class="hero-section-title">EscapeAtlas</h1>
+                <p class="hero-section-sub-heading">Your Adventure Starts Here – Explore, Dream, Discover with EscapeAtlas</p>
+            </div>
+        
+            <!-- scroll down img -->
+            <img src="Arrow.webp" class="scroll-down-icon" alt="scroll down indicator">
+        </main>
+    </header>
+    
+    <div class="background">
+        <img src="back.jpg" class="background-image" alt="hero-section image">
+    
+        <!-- grid -->
+        <div class="grid-slider">
+            <div class="grid-item hide"></div>
+            <div class="grid-item hide"></div>
+            <div class="grid-item hide"></div>
+            <div class="grid-item hide"></div>
+            <div class="grid-item hide"></div>
+            <div class="grid-item hide"></div>
+        </div>
+    
+    </div>
+    <section class="explore-section" id="explore-section">
+        <h1 class="section-title" data-aos="fade-up">Explore the world</h1>
+        <p class="section-para" data-aos="fade-up">EscapeAtlas is your gateway to unforgettable journeys. We provide curated travel guides, expert tips, and exclusive deals to help you explore the world’s most captivating destinations. Whether you’re looking for hidden gems, adventure hotspots, or relaxing retreats, EscapeAtlas has everything you need to plan, book, and embark on your dream escape. Your adventure awaits – let EscapeAtlas be your guide!</p>
+    
+        <!-- grid -->
+    
+        <div class="tours-container">
+            <div class="tour-card" data-aos="fade-up">
+                <img src="Australia.jpg" class="tour-img" alt="tour-image">
+                <div class="tour-body">
+                    <h3 class="tour-name">Australia</h3>
+                    <p class="tour-action"><a href=index2.html>BOOK A TRIP</p></a>
+                </div>
+            </div>
+    
+            <div class="tour-card" data-aos="fade-up">
+                <img src="Maldives.jpg" class="tour-img" alt="tour-image">
+                <div class="tour-body">
+                    <h3 class="tour-name">Maldives</h3>
+                    <p class="tour-action"><a href=index2.html>BOOK A TRIP</p></a>
+                </div>
+            </div>
+    
+            <div class="tour-card" data-aos="fade-up">
+                <a href="index2.html" ><img src="Paris.jpg" class="tour-img" alt="tour-image"></a>
+                <div class="tour-body">
+                    <h3 class="tour-name">Paris</h3>
+                    <p class="tour-action"><a href=index2.html>BOOK A TRIP</p></a>
+                </div>
+            </div>
+    
+            <div class="tour-card" data-aos="fade-up">
+                <img src="Dubai.jpg" class="tour-img" alt="tour-image">
+                <div class="tour-body">
+                    <h3 class="tour-name">Dubai</h3>
+                    <p class="tour-action"><a href=index2.html>BOOK A TRIP</p></a>
+                </div>
+            </div>
+    
+            <div class="tour-card" data-aos="fade-up">
+                <img src="India.jpg" class="tour-img" alt="tour-image">
+                <div class="tour-body">
+                    <h3 class="tour-name">India</h3>
+                    <p class="tour-action"><a href=index2.html>BOOK A TRIP</p></a>
+                </div>
+            </div>
+    
+            <div class="tour-card" data-aos="fade-up">
+                <img src="Italy.jpg" class="tour-img" alt="tour-image">
+                <div class="tour-body">
+                    <h3 class="tour-name">Italy</h3>
+                    <p class="tour-action"><a href=index2.html>BOOK A TRIP</p></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="services-section" id="services">
+        <h1 class="section-title" data-aos="fade-up">Why Us ?</h1>
+        <p class="section-para" data-aos="fade-up">We bring you expertly curated destinations, exclusive travel insights, and personalized recommendations – all to make your journey unforgettable from start to finish.</p>
+    
+        <!-- services grid -->
+        <div class="serives-grid">
+            <div class="service-card" data-aos="fade-up">
+                <div class="circle"></div>
+                <i class="fa-solid fa-earth-americas card-icon"></i>
+                
+                <p class="service-text">We are based all over the world</p>
+            </div>
+            <div class="service-card" data-aos="fade-up">
+                <div class="circle"></div>
+                <i class="fa-solid fa-coins card-icon"></i>
+                <p class="service-text">Travel the World,Without thinking</p>
+            </div>
+            <div class="service-card" data-aos="fade-up">
+                <div class="circle"></div>
+                <i class="fa-solid fa-book-open card-icon"></i>
+                <p class="service-text">Get to know about local cultures</p>
+            </div>
+            <div class="service-card" data-aos="fade-up">
+                <div class="circle"></div>
+                <i class="fa-solid fa-person-snowboarding card-icon"></i>
+                <p class="service-text">Have you best experience</p>
+            </div>
+        </div>
+    
+        <div class="bg-circle"></div>
+    
+        <div class="travel-grid" id="travel">
+            <img src="img1.jpeg" data-aos="fade-up" alt=""><!--Golden Temple-->
+            <img src="img2.jpeg" data-aos="fade-up" alt="">
+            <img src="img3.jpeg" data-aos="fade-up" alt="">
+            <img src="img4.jpeg " data-aos="fade-up" alt="">
+            <img src="img5.jpeg" data-aos="fade-up" alt="">
+            <img src="img6.jpeg" data-aos="fade-up" alt="">
+            <img src="img7.jpg" data-aos="fade-up" alt="">
+            <img src="img8.jpeg" data-aos="fade-up" alt=""><!--Himalaya-->
+            <img src="img9.jpg" data-aos="fade-up" alt=""><!--Kedarnath-->
+            <img src="img10.jpg" data-aos="fade-up" alt=""><!--Rishikesh-->
+            <img src="img11.jpg" data-aos="fade-up" alt=""><!--Dharamshala-->
+            <img src="img12.jpg" data-aos="fade-up" alt=""> <!--Nainital-->
+        </div>
+    
+    </section>
+    <!-- contact section -->
+<section class="book-section" id="booknow">
+    <div class="book-content" data-aos="fade-up">
+        <h1 class="book-now-title">Book your travel today</h1>
+        <p class="book-now-text">Give yourself and your family a peaceful and wonderful vacation this holiday</p>
+
+        <button class="book-now">book now</button>
+    </div>
+    <div class="bg-circle-2"></div>
+    <img src="Family.avif" data-aos="fade-up" class="book-now-img" alt="">
+</section>
+
+<!-- footer -->
+<footer class="footer">
+    <img src="img/logo.png" class="footer-logo" alt="">
+    <div class="footer-text">
+        <p>Travel the World, on this holiday</p>
+        <p>Email - support@EscapeAtlas.com</p>
+        <p>Phone - 8340346709</p>
+    </div>
+    <p class="copyright-line">EscapeAtlas,  &copy; All Rights Reserved</p>
+</footer>
+        
+</body>
+</html>
